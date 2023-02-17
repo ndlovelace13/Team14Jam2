@@ -5,27 +5,40 @@ using TMPro;
 
 public class scoreAdjust : MonoBehaviour
 {
-    int score;
+    [SerializeField] int score;
+    
     public TMP_Text txt;
+   
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider coll)
     {
-        if (collision.gameObject.tag == "soup")
+       
+        if (coll.gameObject.tag == "ingredient")
         {
-            score++;
+            score = score + 1;
+            
         }
-      //Destroy(gameObject); // destroy the tomato after it joins the soup
+        if (coll.gameObject.tag == "zombie")
+        {
+            score = score - 1;
+            
+        }
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         txt.text = "score: " + score.ToString();
+        
+        
 
     }
 }
