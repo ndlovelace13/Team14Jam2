@@ -53,6 +53,7 @@ public class scoreAdjust : MonoBehaviour
         if(fall == true)
         {
             Debug.Log("You can't go in the soup, silly!");
+            fall = false;
         }
         
         
