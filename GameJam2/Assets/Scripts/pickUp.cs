@@ -23,7 +23,7 @@ public class pickUp : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(item.transform.position, holder.transform.position);
-        if(distance >= 3f)
+        if(distance >= 4f)
         {
             isHold = false;
         }
@@ -53,7 +53,7 @@ public class pickUp : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (distance <= 3f)
+        if (distance <= 4f)
         {
             isHold = true;
             item.GetComponent<Rigidbody>().useGravity = false;

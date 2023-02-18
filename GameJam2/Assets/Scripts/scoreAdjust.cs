@@ -20,12 +20,13 @@ public class scoreAdjust : MonoBehaviour
        
         if (coll.gameObject.tag == "ingredient")
         {
-            score = score + 1;
-            
+            score = score + 5;
+            Destroy(coll.gameObject);
         }
         if (coll.gameObject.tag == "zombie")
         {
             score = score - 1;
+            Destroy(coll.gameObject);
             
         }
 
