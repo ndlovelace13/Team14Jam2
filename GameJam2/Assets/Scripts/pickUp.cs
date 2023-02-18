@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pickUp : MonoBehaviour
 {
-    float throwForce = 800;
+    float throwForce = 1200;
     Vector3 objectPos;
     float distance;
 
@@ -23,7 +23,7 @@ public class pickUp : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(item.transform.position, holder.transform.position);
-        if(distance >= 4f)
+        if(distance >= 5f)
         {
             isHold = false;
         }
@@ -51,9 +51,12 @@ public class pickUp : MonoBehaviour
         
     }
 
+   
+
+
     void OnMouseDown()
     {
-        if (distance <= 4f)
+        if (distance <= 5f)
         {
             isHold = true;
             item.GetComponent<Rigidbody>().useGravity = false;
