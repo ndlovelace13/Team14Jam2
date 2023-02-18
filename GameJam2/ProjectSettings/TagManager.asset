@@ -9,6 +9,7 @@ TagManager:
   - ingredient
   - player
   - knife
+  - floor
   layers:
   - Default
   - TransparentFX
