@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pickUp : MonoBehaviour
 {
-    float throwForce = 1200;
+    float throwForce = 1300;
     Vector3 objectPos;
     float distance;
 
@@ -12,11 +12,11 @@ public class pickUp : MonoBehaviour
     public GameObject item;
     public GameObject holder;
     public bool isHold = false;
+    Vector3 startPosition;
 
-
-    // Start is called before the first frame update
     void Start()
-    { 
+    {
+        startPosition = item.transform.position;
     }
 
     // Update is called once per frame
@@ -51,10 +51,18 @@ public class pickUp : MonoBehaviour
         
     }
 
-   
+    void OnTriggerEnter(Collider coll)
+    {
+
+        if (coll.gameObject.tag == "floor")
+        {
+            Debug.Log("Dropping food on the floor is unsanitary.");
+            item.transform.position = startPosition;
+        }
+    }
 
 
-    void OnMouseDown()
+        void OnMouseDown()
     {
         if (distance <= 5f)
         {
