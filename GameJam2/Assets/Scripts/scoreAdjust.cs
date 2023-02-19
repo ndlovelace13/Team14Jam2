@@ -16,7 +16,7 @@ public class scoreAdjust : MonoBehaviour
     int savory = 0;
 
     int type = 0;
-    string s = "";
+    string s = "Your soup needs more ingredients";
 
 
 
@@ -61,7 +61,7 @@ public class scoreAdjust : MonoBehaviour
             }
             else if (coll.gameObject.name == "strawberry")
             {
-                sweet += 3;
+                sweet += 4;
                 savory -= 2;
             }
             else if (coll.gameObject.name == "steak")
