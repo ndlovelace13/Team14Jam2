@@ -8,6 +8,8 @@ public class pickUp : MonoBehaviour
     Vector3 objectPos;
     float distance;
 
+    [SerializeField] public int index;
+
     public bool canHold = true;
     public GameObject item;
     public GameObject holder;
@@ -18,6 +20,11 @@ public class pickUp : MonoBehaviour
     void Start()
     {
         startPosition = item.transform.position;
+    }
+
+    int ind()
+    {
+        return index;
     }
 
     // Update is called once per frame
