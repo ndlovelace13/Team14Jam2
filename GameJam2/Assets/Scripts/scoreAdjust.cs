@@ -47,7 +47,7 @@ public class scoreAdjust : MonoBehaviour
             {
                 spicy -= 2;
                 sweet += 5;
-                savory += 3;
+                savory -= 3;
             }
             else if (coll.gameObject.name == "jalepeno")
             {
@@ -62,7 +62,7 @@ public class scoreAdjust : MonoBehaviour
             else if (coll.gameObject.name == "strawberry")
             {
                 sweet += 3;
-                savory += 1;
+                savory -= 2;
             }
             else if (coll.gameObject.name == "steak")
             {
