@@ -54,7 +54,7 @@ public class pickUp : MonoBehaviour
     void OnTriggerEnter(Collider coll)
     {
 
-        if (coll.gameObject.tag == "floor")
+        if (coll.gameObject.tag == "floor" && item.gameObject.tag == "ingredient")
         {
             Debug.Log("Dropping food on the floor is unsanitary.");
             item.transform.position = startPosition;

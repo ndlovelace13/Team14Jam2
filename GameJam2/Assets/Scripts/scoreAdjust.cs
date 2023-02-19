@@ -21,7 +21,7 @@ public class scoreAdjust : MonoBehaviour
     {
         
        
-        if (coll.gameObject.tag == "ingredient")
+        if (coll.gameObject.tag == "ingredient" || coll.gameObject.tag == "sauce")
         {
             splash.Play();
             score = score + 5;
