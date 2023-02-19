@@ -16,7 +16,7 @@ public class scoreAdjust : MonoBehaviour
     int savory = 0;
 
     int type = 0;
-    string s = "";
+    string s = "Your soup needs more ingredients";
 
 
 
