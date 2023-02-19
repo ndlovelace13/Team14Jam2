@@ -10,6 +10,7 @@ TagManager:
   - player
   - knife
   - floor
+  - sauce
   layers:
   - Default
   - TransparentFX

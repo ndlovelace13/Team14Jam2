@@ -13,6 +13,7 @@ public class pickUp : MonoBehaviour
     public GameObject holder;
     public bool isHold = false;
     Vector3 startPosition;
+    public AudioSource sound;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class pickUp : MonoBehaviour
 
             if (Input.GetMouseButtonDown(1))
             {
+                sound.Play();
                 item.GetComponent<Rigidbody>().AddForce(holder.transform.forward * throwForce);
                 isHold = false;
             }
@@ -70,6 +72,7 @@ public class pickUp : MonoBehaviour
     {
         if (distance <= 5f)
         {
+            
             isHold = true;
             item.GetComponent<Rigidbody>().useGravity = false;
             item.GetComponent<Rigidbody>().detectCollisions = true;
