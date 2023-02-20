@@ -123,7 +123,7 @@ public class scoreAdjust : MonoBehaviour
             else if (spicy == sweet && savory == spicy)
             {
                 score = spicy;
-                type = 6; //spicy sweet soup
+                type = 7; //eternal soup
                 s = "Your soup is perfectly balanced, as all things should be";
             }
 
@@ -149,7 +149,7 @@ public class scoreAdjust : MonoBehaviour
             }
             Destroy(coll.gameObject);
             type = 8;
-            s = "Why are there zombies in your soup?";
+            s = "Why is there bacteria in your soup? Gross";
             
         }
        if (coll.gameObject.tag == "player")
