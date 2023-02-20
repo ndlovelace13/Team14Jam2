@@ -36,50 +36,50 @@ public class scoreAdjust : MonoBehaviour
 
             if(coll.gameObject.name == "carrot")
             {
-                savory += 3;
+                savory += 30;
             }
             else if (coll.gameObject.name == "chilli pepper")
             {
-                spicy += 2;
-                savory += 1;
+                spicy += 15;
+                
             }
             else if (coll.gameObject.name == "honey")
             {
-                spicy -= 2;
-                sweet += 5;
-                savory -= 3;
+                spicy -= 15;
+                sweet += 40;
+                savory -= 30;
             }
             else if (coll.gameObject.name == "jalepeno")
             {
-                spicy += 3;
+                spicy += 15;
             }
             else if (coll.gameObject.name == "milk")
             {
-                spicy -= 6;
-                sweet += 3;
-                savory += 3;
+                spicy -= 45;
+                sweet += 20;
+                savory += 10;
             }
             else if (coll.gameObject.name == "strawberry")
             {
-                sweet += 4;
-                savory -= 2;
+                sweet += 30;
+                savory -= 35;
             }
             else if (coll.gameObject.name == "steak")
             {
-                spicy += 3;
-                sweet -= 3;
-                savory += 9;
+                spicy += 5;
+                sweet -= 50;
+                savory += 50;
             }
             else if (coll.gameObject.name == "tomato")
             {
-                sweet += 2;
-                savory += 2;
+                sweet += 10;
+                savory += 15;
 
             }
             else if (coll.gameObject.name == "hotsauce")
             {
-                spicy += 8;
-                sweet -= 3;
+                spicy += 65;
+                sweet -= 10;
             }
 
 
@@ -120,6 +120,12 @@ public class scoreAdjust : MonoBehaviour
                 type = 6; //spicy sweet soup
                 s = "Your soup is sweet and spicy. That's the best kind!";
             }
+            else if (spicy == sweet && savory == spicy)
+            {
+                score = spicy;
+                type = 6; //spicy sweet soup
+                s = "Your soup is perfectly balanced, as all things should be";
+            }
 
 
             Destroy(coll.gameObject);
@@ -127,10 +133,10 @@ public class scoreAdjust : MonoBehaviour
         if (coll.gameObject.tag == "zombie")
         {
             splash.Play();
-            score = score - 1;
-            savory -= 1;
-            sweet -= 1;
-            spicy -= 1;
+            score = score - 5;
+            savory -= 5;
+            sweet -= 5;
+            spicy -= 5;
             Destroy(coll.gameObject);
             type = 8;
             s = "Why are there zombies in your soup?";
