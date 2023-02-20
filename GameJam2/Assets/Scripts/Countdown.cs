@@ -8,6 +8,7 @@ public class Countdown : MonoBehaviour
     [SerializeField] private int freeTimeTotal = 60;
     private float currentTime;
     private bool timerActive;
+    private bool gameEnd = false;
     [SerializeField] private GameObject controller;
     TMPro.TMP_Text timerText;
     // Start is called before the first frame update
@@ -26,13 +27,14 @@ public class Countdown : MonoBehaviour
             currentTime -= Time.deltaTime;
             updateTimer(currentTime);
         }
-        if (currentTime <= 0)
+        if (currentTime <= 0 && !gameEnd)
         {
             Debug.Log("The zombies are coming!");
             controller.GetComponent<GameStateControl>().zombiesAttacking = true;
             currentTime = freeTimeTotal;
         }
         timerActive = !controller.GetComponent<GameStateControl>().zombiesAttacking;
+        gameEnd = controller.GetComponent<GameStateControl>().gameEnd;
     }
 
     void updateTimer(float time)

@@ -68,14 +68,17 @@ public class pickUp : MonoBehaviour
             Debug.Log("Dropping food on the floor is unsanitary.");
             item.transform.position = startPosition;
         }
-        if (coll.gameObject.tag == "zombie"&& item.gameObject.tag == "knife")
+    }
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.tag == "zombie" && item.gameObject.tag == "knife")
         {
             Destroy(coll.gameObject);
         }
     }
 
 
-        void OnMouseDown()
+    void OnMouseDown()
     {
         if (distance <= 5f)
         {

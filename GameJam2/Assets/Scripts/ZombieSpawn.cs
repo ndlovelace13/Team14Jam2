@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ZombieSpawn : MonoBehaviour
@@ -9,8 +10,9 @@ public class ZombieSpawn : MonoBehaviour
     [SerializeField] private int spawnCooldown = 5;
     private float currentTime = 0;
     private bool spawnerActive = false;
-    private int spawnCount = 0;
-    private int maxSpawn = 2;
+    [SerializeField] private int spawnCount = 0;
+    [SerializeField] private int maxSpawn = 2;
+    private int spawnWave = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +39,11 @@ public class ZombieSpawn : MonoBehaviour
         if (spawnCount == maxSpawn)
         {
             spawnCount = 0;
-            maxSpawn += 2;
+            if (maxSpawn < 5)
+                maxSpawn += 2;
+            spawnWave++;
+            if (spawnWave == 4)
+                controller.GetComponent<GameStateControl>().gameEnd = true;
             controller.GetComponent<GameStateControl>().zombiesAttacking = false;
         }
     }
