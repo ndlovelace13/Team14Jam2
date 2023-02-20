@@ -156,7 +156,7 @@ public class scoreAdjust : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = "score: " + score.ToString();
+        txt.text = "Score: " + score.ToString();
         if(fall == true)
         {
             Debug.Log("You can't go in the soup, silly!");
