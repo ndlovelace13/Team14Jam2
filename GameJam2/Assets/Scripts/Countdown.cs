@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
@@ -35,6 +36,13 @@ public class Countdown : MonoBehaviour
         }
         timerActive = !controller.GetComponent<GameStateControl>().zombiesAttacking;
         gameEnd = controller.GetComponent<GameStateControl>().gameEnd;
+
+        if (gameEnd )//&& currentTime == 0)
+        {
+            int y = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(y + 1);
+            
+        }
     }
 
     void updateTimer(float time)
