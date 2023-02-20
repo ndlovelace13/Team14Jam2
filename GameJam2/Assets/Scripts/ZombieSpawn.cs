@@ -21,9 +21,24 @@ public class ZombieSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (spawnerActive)
-       // {
+        spawnerActive = controller.GetComponent<GameStateControl>().zombiesAttacking;
+        if (spawnerActive && currentTime >= spawnCooldown)
+        {
+            print("Zombie Spawned!");
+            Instantiate(zombie, transform.position, Quaternion.identity);
+            spawnCount++;
+            currentTime = 0;
+        }
+        else if (spawnerActive)
+        {
+            currentTime += Time.deltaTime;
+        }
 
-       // }
+        if (spawnCount == maxSpawn)
+        {
+            spawnCount = 0;
+            maxSpawn += 2;
+            controller.GetComponent<GameStateControl>().zombiesAttacking = false;
+        }
     }
 }

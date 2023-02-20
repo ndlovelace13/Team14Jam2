@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Countdown : MonoBehaviour
 {
-    private int freeTimeTotal = 60;
+    [SerializeField] private int freeTimeTotal = 60;
     private float currentTime;
     private bool timerActive;
     [SerializeField] private GameObject controller;
@@ -42,7 +42,7 @@ public class Countdown : MonoBehaviour
         float seconds = Mathf.FloorToInt(time % freeTimeTotal);
         if (seconds == 0 && timerActive)
         {
-            timerText.text = $"60";
+            timerText.text = $"{freeTimeTotal}";
         }
         if (seconds == 0 && !timerActive)
         {
