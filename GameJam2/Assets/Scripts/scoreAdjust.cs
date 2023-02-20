@@ -133,10 +133,20 @@ public class scoreAdjust : MonoBehaviour
         if (coll.gameObject.tag == "zombie")
         {
             splash.Play();
-            score = score - 5;
-            savory -= 5;
-            sweet -= 5;
-            spicy -= 5;
+            if ((score - 5) >= 0)
+            {
+                score = score - 5;
+                savory -= 5;
+                sweet -= 5;
+                spicy -= 5;
+            }
+            else
+            {
+                score = 0;
+                savory = 0;
+                sweet = 0;
+                spicy = 0;
+            }
             Destroy(coll.gameObject);
             type = 8;
             s = "Why are there zombies in your soup?";
@@ -145,10 +155,20 @@ public class scoreAdjust : MonoBehaviour
        if (coll.gameObject.tag == "player")
         {
             splash.Play();
-            score = score - 1;
-            savory -= 1;
-            sweet -= 1;
-            spicy -= 1;
+            if ((score - 5) >= 0)
+            {
+                score = score - 1;
+                savory -= 1;
+                sweet -= 1;
+                spicy -= 1;
+            }
+            else
+            {
+                score = 0;
+                savory = 0;
+                sweet = 0;
+                spicy = 0;
+            }
             fall = true;
             type = 7;
             s = "You can't add yourself to the soup, silly.";
