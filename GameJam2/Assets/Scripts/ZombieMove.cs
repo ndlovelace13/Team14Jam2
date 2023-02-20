@@ -17,6 +17,6 @@ public class ZombieMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        agent.destination = goal.position;
     }
 }

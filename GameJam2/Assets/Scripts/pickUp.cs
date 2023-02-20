@@ -74,6 +74,7 @@ public class pickUp : MonoBehaviour
         if (coll.gameObject.tag == "zombie" && item.gameObject.tag == "knife")
         {
             Destroy(coll.gameObject);
+            item.transform.position = startPosition;
         }
     }
 
