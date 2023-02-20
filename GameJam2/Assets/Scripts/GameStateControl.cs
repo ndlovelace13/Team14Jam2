@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameStateControl : MonoBehaviour
 {
     [SerializeField] public bool zombiesAttacking;
+    public bool gameEnd = false;
     // Start is called before the first frame update
     void Start()
     {
