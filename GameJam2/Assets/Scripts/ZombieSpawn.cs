@@ -17,7 +17,7 @@ public class ZombieSpawn : MonoBehaviour
     void Start()
     {
         spawnerActive = controller.GetComponent<GameStateControl>().zombiesAttacking;
-
+        spawnCount = controller.GetComponent<GameStateControl>().spawnCount;
     }
 
     // Update is called once per frame
@@ -26,10 +26,11 @@ public class ZombieSpawn : MonoBehaviour
         spawnerActive = controller.GetComponent<GameStateControl>().zombiesAttacking;
         if (spawnerActive && currentTime >= spawnCooldown)
         {
-            print("Zombie Spawned!");
             Instantiate(zombie, transform.position, Quaternion.identity);
-            spawnCount++;
+            controller.GetComponent<GameStateControl>().spawnCount++;
+            spawnCount = controller.GetComponent<GameStateControl>().spawnCount;
             currentTime = 0;
+            print("Current spawn count:" + spawnCount);
         }
         else if (spawnerActive)
         {
@@ -39,11 +40,15 @@ public class ZombieSpawn : MonoBehaviour
         if (spawnCount == maxSpawn)
         {
             spawnCount = 0;
-            if (maxSpawn < 5)
-                maxSpawn += 2;
+            //if (maxSpawn < 5)
+            maxSpawn += 2;
             spawnWave++;
+            print("Current wave: " + spawnWave);
+            print("Current maxSpawn: " + maxSpawn);
             if (spawnWave == 4)
                 controller.GetComponent<GameStateControl>().gameEnd = true;
+            controller.GetComponent<GameStateControl>().spawnCount = 0;
+            spawnCount = controller.GetComponent<GameStateControl>().spawnCount;
             controller.GetComponent<GameStateControl>().zombiesAttacking = false;
         }
     }
