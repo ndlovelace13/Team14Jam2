@@ -38,6 +38,8 @@ public class Countdown : MonoBehaviour
         }
         timerActive = !controller.GetComponent<GameStateControl>().zombiesAttacking;
         gameEnd = controller.GetComponent<GameStateControl>().gameEnd;
+        if (gameEnd && currentTime <= freeTimeTotal/2)
+            timerText.color = Color.red;
 
         if (gameEnd && currentTime <= 0)
         {
