@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ZombieSpawn : MonoBehaviour
 {
+    public AudioSource sound;
     [SerializeField] private GameObject controller;
     [SerializeField] private GameObject zombie;
     [SerializeField] private int spawnCooldown = 5;
@@ -27,6 +28,7 @@ public class ZombieSpawn : MonoBehaviour
         if (spawnerActive && currentTime >= spawnCooldown)
         {
             Instantiate(zombie, transform.position, Quaternion.identity);
+            sound.Play();
             controller.GetComponent<GameStateControl>().spawnCount++;
             spawnCount = controller.GetComponent<GameStateControl>().spawnCount;
             currentTime = 0;

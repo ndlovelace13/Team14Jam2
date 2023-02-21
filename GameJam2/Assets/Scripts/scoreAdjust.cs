@@ -10,6 +10,7 @@ public class scoreAdjust : MonoBehaviour
     public TMP_Text txt;
     public TMP_Text soupType;
     public AudioSource splash;
+    public AudioSource zombie;
 
     int sweet = 0;
     int spicy = 0;
@@ -133,6 +134,7 @@ public class scoreAdjust : MonoBehaviour
         if (coll.gameObject.tag == "zombie")
         {
             splash.Play();
+            zombie.Play();
             if ((score - 5) >= 0)
             {
                 score = score - 5;
