@@ -9,12 +9,13 @@ public class Countdown : MonoBehaviour
     [SerializeField] private int freeTimeTotal = 60;
     private float currentTime;
     private bool timerActive;
-    private bool gameEnd = false;
+    private bool gameEnd;
     [SerializeField] private GameObject controller;
     TMPro.TMP_Text timerText;
     // Start is called before the first frame update
     void Start()
     {
+        gameEnd = false;
         currentTime = freeTimeTotal;
         timerText = GetComponent<TMPro.TMP_Text>();
         timerActive = !controller.GetComponent<GameStateControl>().zombiesAttacking;
@@ -33,11 +34,12 @@ public class Countdown : MonoBehaviour
             Debug.Log("The zombies are coming!");
             controller.GetComponent<GameStateControl>().zombiesAttacking = true;
             currentTime = freeTimeTotal;
+            timerText.text = $"Germ Invasion!";
         }
         timerActive = !controller.GetComponent<GameStateControl>().zombiesAttacking;
         gameEnd = controller.GetComponent<GameStateControl>().gameEnd;
 
-        if (gameEnd )//&& currentTime == 0)
+        if (gameEnd && currentTime <= 0)
         {
             int y = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(y + 1);
