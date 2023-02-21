@@ -11,6 +11,7 @@ public class scoreAdjust : MonoBehaviour
     public TMP_Text soupType;
     public AudioSource splash;
     public AudioSource zombie;
+    public AudioSource spice;
 
     int sweet = 0;
     int spicy = 0;
@@ -33,56 +34,67 @@ public class scoreAdjust : MonoBehaviour
        
         if (coll.gameObject.tag == "ingredient" || coll.gameObject.tag == "sauce")
         {
-            splash.Play();
 
-            if(coll.gameObject.name == "carrot")
+            if (coll.gameObject.name == "salt" || coll.gameObject.name == "pepper")
             {
-                savory += 30;
-            }
-            else if (coll.gameObject.name == "chilli pepper")
-            {
-                spicy += 15;
-                
-            }
-            else if (coll.gameObject.name == "honey")
-            {
-                spicy -= 15;
-                sweet += 40;
-                savory -= 30;
-            }
-            else if (coll.gameObject.name == "jalepeno")
-            {
-                spicy += 15;
-            }
-            else if (coll.gameObject.name == "milk")
-            {
-                spicy -= 45;
-                sweet += 20;
-                savory += 10;
-            }
-            else if (coll.gameObject.name == "strawberry")
-            {
-                sweet += 30;
-                savory -= 35;
-            }
-            else if (coll.gameObject.name == "steak")
-            {
-                spicy += 5;
-                sweet -= 50;
-                savory += 50;
-            }
-            else if (coll.gameObject.name == "tomato")
-            {
-                sweet += 10;
-                savory += 15;
-
-            }
-            else if (coll.gameObject.name == "hotsauce")
-            {
-                spicy += 65;
-                sweet -= 10;
+                spice.Play();
+                sweet += 1;
+                spicy += 1;
+                savory += 1;
             }
 
+            else
+            {
+                splash.Play();
+
+                if (coll.gameObject.name == "carrot")
+                {
+                    savory += 30;
+                }
+                else if (coll.gameObject.name == "chilli pepper")
+                {
+                    spicy += 15;
+
+                }
+                else if (coll.gameObject.name == "honey")
+                {
+                    spicy -= 15;
+                    sweet += 40;
+                    savory -= 30;
+                }
+                else if (coll.gameObject.name == "jalepeno")
+                {
+                    spicy += 15;
+                }
+                else if (coll.gameObject.name == "milk")
+                {
+                    spicy -= 45;
+                    sweet += 20;
+                    savory += 10;
+                }
+                else if (coll.gameObject.name == "strawberry")
+                {
+                    sweet += 30;
+                    savory -= 35;
+                }
+                else if (coll.gameObject.name == "steak")
+                {
+                    spicy += 5;
+                    sweet -= 50;
+                    savory += 50;
+                }
+                else if (coll.gameObject.name == "tomato")
+                {
+                    sweet += 10;
+                    savory += 15;
+
+                }
+                else if (coll.gameObject.name == "hotsauce")
+                {
+                    spicy += 65;
+                    sweet -= 10;
+                }
+            }
 
 
             if (savory > sweet && savory > spicy)
